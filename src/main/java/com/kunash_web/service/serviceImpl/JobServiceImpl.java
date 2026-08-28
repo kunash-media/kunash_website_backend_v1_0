@@ -1,4 +1,4 @@
-package com.kunash_web.service.impl;
+package com.kunash_web.service.serviceImpl;
 
 import com.kunash_web.dto.request.JobRequest;
 import com.kunash_web.dto.response.JobResponse;
