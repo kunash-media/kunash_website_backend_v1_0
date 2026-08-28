@@ -15,8 +15,11 @@ import java.util.List;
 @RequestMapping("/api")
 public class PublicJobController {
 
-    @Autowired
-    private JobService jobService;
+    private final JobService jobService;
+
+    public PublicJobController(JobService jobService) {
+        this.jobService = jobService;
+    }
 
     /**
      * PUBLIC API: Get all ACTIVE jobs

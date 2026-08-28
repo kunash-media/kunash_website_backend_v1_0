@@ -5,7 +5,6 @@ import com.kunash_web.dto.response.ApiResponse;
 import com.kunash_web.dto.response.ApplicationResponse;
 import com.kunash_web.service.ApplicationService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -24,8 +23,11 @@ import java.util.Map;
 @RequestMapping("/api")
 public class ApplicationController {
 
-    @Autowired
-    private ApplicationService applicationService;
+    private final ApplicationService applicationService;
+
+    public ApplicationController(ApplicationService applicationService) {
+        this.applicationService = applicationService;
+    }
 
     // ==========================================
     // PUBLIC API: SUBMIT APPLICATION

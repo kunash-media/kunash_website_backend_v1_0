@@ -14,18 +14,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/contact")
-@CrossOrigin(origins = {
-        "http://localhost:3000",
-        "http://localhost:5500",
-        "http://127.0.0.1:5500",
-        "http://localhost:5501",
-        "http://127.0.0.1:5501"
-})
-@RequiredArgsConstructor
 @Slf4j
 public class ContactController {
 
     private final ContactService contactService;
+
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
+    }
+
 
     // =============================================
     //  PUBLIC ENDPOINT - No Authentication Required
