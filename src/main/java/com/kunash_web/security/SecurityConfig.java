@@ -70,8 +70,8 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173", "http://localhost:5500",
-                "https://terrapureenvironment.com","https://tpe-api.terrapureenvironment.com/",
-                "https://admin.terrapureenvironment.com/","https://www.terrapureenvironment.com/"
+                "https://kunashmedia.com","https://web-api.kunashmedia.com",
+                "https://admin-web.kunashmedia.com","https://www.kunashmedia.com/"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
@@ -92,7 +92,8 @@ public class SecurityConfig {
                     auth
                             .requestMatchers("/api/admin/bootstrap").permitAll()
                             .requestMatchers("/api/admin/auth/**").permitAll()
-                            .requestMatchers("/api/users/auth/**").permitAll()
+                            .requestMatchers("/api/contact/submit").permitAll()
+                            .requestMatchers("/api/contact/admin/**").authenticated()
                             .requestMatchers("/api/admin/**").authenticated()
                             .anyRequest().permitAll();
                 })
